@@ -1,0 +1,23 @@
+
+{% extends 'base.html' %}
+{% block content %}
+<center>
+<h1>Credit Detail</h1>
+<div class="card">
+    <img src="{{ credit.customer.profile_photo.url }}" alt="">
+    <p><b> Customer:</b> {{ credit.customer.username }} </p>
+    <p><b>Gender </b>{{ credit.customer.gender  }} </p>
+    <p><b>Civility:</b> {{ credit.customer.civility }}</p>
+    <p><b>Province: </b> {{ credit.customer.province }}</p>
+    <p><b>Birth Date:</b> {{ credit.customer.birth_year }}</p>
+    <p><b>Amount:</b> {{ credit.amount }}</p>
+    <p><b>Date:</b> {{ credit.date_created }}</p>
+    <p><b>Approved:</b> {{ credit.approved }}</p>
+    <p><b>Payed:</b> {{ credit.payed }}</p>
+    <button><a href="{% url 'credit_update' credit.id %}">Update</a></button>
+    <br>
+    <button><a href="{% url 'credit_delete' credit.id %}">Delete</a></button>
+</div>
+<a class="back-link"  href="{% url 'credit_list' %}">Back to the list</a>
+</center>
+{% endblock content %}

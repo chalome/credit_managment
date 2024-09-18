@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+	<h1>Login Page</h1>
+	{% if form.errors %}
+		<div>
+			{{ form.errors }}
+		</div>
+	{% endif %}
+	<form method="POST" enctype="multipart/form-data">
+		{% csrf_token %}
+		{{ form.as_p }}
+		<button type="submit">Login in</button>
+	</form>
+{% endblock content %}

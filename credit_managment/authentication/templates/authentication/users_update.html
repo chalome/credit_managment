@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+<center>
+	<h1>Update {{ users.username }} informations</h1>
+	{% if form.errors %}
+		<div>
+			{{ form.errors }}
+		</div>
+	{% endif %}
+	<form method="POST" enctype="multipart/form-data">
+		{% csrf_token %}
+		{{ form.as_p }}
+		<button type="submit">Update</button>
+	</form>
+	</center>
+{% endblock content %}

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+	<h1>Create new account</h1>
+	{% if form.errors %}
+		<div>
+			{{ form.errors }}
+		</div>
+	{% endif %}
+	<form method="POST" enctype="multipart/form-data">
+		{% csrf_token %}
+		{{ form.as_p }}
+		<button type="submit">Create</button>
+	</form>
+{% endblock content %}
+

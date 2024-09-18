@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}
+    Home Page
+{% endblock title %}
+{% block content %}
+<center>
+    <h1>Welcome to Credit Management</h1>
+    <p>This is the main content area where you can manage your credits.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ac erat vel velit cursus convallis.</p>
+
+    {% if user_credits %}
+        <h2>Your Credit Status</h2>
+        <ul>
+            {% for credit in user_credits %}
+                <li>
+                    Amount: {{ credit.amount }} - 
+                    Approved: {{ credit.approved|yesno:"Yes,No" }}
+                </li>
+            {% endfor %}
+        </ul>
+        {% if approved_credits %}
+            <p>Your credit request(s) have been approved!</p>
+        {% else %}
+            <p>Your credit request(s) are not yet approved.</p>
+        {% endif %}
+    {% else %}
+        <p>You have no credit requests.</p>
+    {% endif %}
+</center>
+{% endblock content %}
